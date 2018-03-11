@@ -26,9 +26,30 @@ public struct StoryProgressTracker
 		return tempArray;
 	}
 
+	private int[][] GetIdentifiersFromArray(Story[] sentStories)
+	{
+		if (sentStories == null) return null;
+		int[][] tempArray = new int[sentStories.Length][];
+		for (int i = 0; i < sentStories.Length; i++)
+		{
+			tempArray[i] = sentStories[i].ActiveIndex.IDs;
+		}
+		return tempArray;
+	}
+
 	public StoryIndex[] GetActiveStoryIndicies()
 	{
 		return GetIndiciesFromArray(activeStories);
+	}
+
+	public int[][] GetActiveStoryIdentifiers()
+	{
+		return GetIdentifiersFromArray(activeStories);
+	}
+
+	public int[][] GetCompletedStoryIdentifiers()
+	{
+		return GetIdentifiersFromArray(completedStories);
 	}
 
 	public StoryIndex[] GetCompletedStoryIndicies()
