@@ -1,0 +1,10 @@
+{
+    "name": "DSA.Extensions.Stories.Editor",
+    "references": [
+        "DSA.Extensions.Base",
+        "DSA.Extensions.Base.Editor",
+        "DSA.Extensions.Stories"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

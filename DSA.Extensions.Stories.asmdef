@@ -1,0 +1,8 @@
+{
+    "name": "DSA.Extensions.Stories",
+    "references": [
+        "DSA.Extensions.Base"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

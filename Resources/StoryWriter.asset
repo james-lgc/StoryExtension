@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a0680882b414791a285a6386dc126a, type: 3}
+  m_Name: StoryWriter
+  m_EditorClassIdentifier: 
+  path: Assets/Extensions/Story/Resources/Stories2.json
+  uniqueIDs:
+  - 
+  - 
+  - '##CP8DeFSEOFOs'
+  - '##gVwOHxOx5UWn'
+  - '##MlOPE2003IFR'
+  - '##msgwGCKCrNTu'
+  - '##nw4pTYn4WGI4'
+  - '##SYHxy9MPU2sd'
+  - '#story#4vMvDdOL4pE5'
+  - '#story#IBiW0BTVyz6E'
+  - '#storyMyth#O9x0iB1ey5br'
+  - '#storyMythList#dJPLQM1Zgk71'
+  - '#storyStage#2511JBCg3P6u'
+  - '#storyStage#GNa1Zin4gM5Q'
+  - '#storyStagePoint#9KRgBpfF1Hbk'
+  - '#storyStagePoint#noL3y1V1wQMX'
+  - '#storyThread#vgtNETNU8gtO'
+  - '#text#c4jVfCrGTrHD'
+  - '#text#gEuLDnhkEpF0'
+  - '#text#NpFqOt4haMMV'
+  mythList:
+    uniqueID: '#storyMythList#dJPLQM1Zgk71'
+    name: Myth List
+    id: 0
+    dataArray:
+    - uniqueID: '#storyMyth#O9x0iB1ey5br'
+      name: A Missing Girl
+      id: 1
+      devDescription: 
+      isCompleted: 0
+      dataArray:
+      - uniqueID: '#story#IBiW0BTVyz6E'
+        name: New in Town
+        id: 0
+        journalDescription: I have arrived in Point Palmerson to investigate the cold
+          case of a local missing girl, Olivie Wakefield.
+        devDescription: 'Game Opens: A police officer has escorted the player to a
+          small home in town.'
+        dataArray:
+        - uniqueID: '#storyThread#vgtNETNU8gtO'
+          name: Meeting the Parents
+          id: 0
+          devDescription: 
+          isActive: 0
+          isCompleted: 0
+          journalDescription: Gather Information on Olivia's disapearance.
+          dataArray:
+          - uniqueID: '#storyStage#GNa1Zin4gM5Q'
+            name: Meet Detective Jones and locate the Wakefield residence.
+            id: 0
+            isCompleted: 0
+            stagePoints: []
+            notes: []
+            serializedUniqueIDPrefix: 
+          - uniqueID: '#storyStage#2511JBCg3P6u'
+            name: Talk to Olivia's parents.
+            id: 1
+            isCompleted: 0
+            stagePoints:
+            - uniqueID: '#storyStagePoint#noL3y1V1wQMX'
+              name: Talk to Jennifer
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            - uniqueID: '#storyStagePoint#9KRgBpfF1Hbk'
+              name: Talk to Marcus
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            notes:
+            - uniqueID: '#text#c4jVfCrGTrHD'
+              name: Sam Granger owns a 7-11 in town.  He organized civillian searches
+                after the police efforts ceased.
+              serializedUniqueIDPrefix: text
+            - uniqueID: '#text#NpFqOt4haMMV'
+              name: Marcus Wakefield blames Chief Wilson for dropping the investigation
+                into Olivia too quickly.
+              serializedUniqueIDPrefix: text
+            - uniqueID: '#text#gEuLDnhkEpF0'
+              name: Sam Granger owns a 7-11 in town.  He organized civillian searches
+                after the police efforts ceased.
+              serializedUniqueIDPrefix: text
+            serializedUniqueIDPrefix: 
+          - uniqueID: '##gVwOHxOx5UWn'
+            name: Speak to members of the community who knew Olivia or were involved
+              in the search operation.
+            id: 2
+            isCompleted: 0
+            stagePoints:
+            - uniqueID: '##CP8DeFSEOFOs'
+              name: Speak to Mr. Barrington
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            - uniqueID: '##msgwGCKCrNTu'
+              name: Speak to Chief Wilson
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            - uniqueID: '##SYHxy9MPU2sd'
+              name: Speak to Sam Granger
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            notes:
+            - uniqueID: 
+              name: She was 13 at the time of her disappearance.
+              serializedUniqueIDPrefix: 
+            - uniqueID: 
+              name: Olivia disppeared 5 years ago.
+              serializedUniqueIDPrefix: 
+            serializedUniqueIDPrefix: 
+          serializedUniqueIDPrefix: 
+        serializedUniqueIDPrefix: story
+      - uniqueID: '#story#4vMvDdOL4pE5'
+        name: Test Story
+        id: 1
+        journalDescription: Some times testing results in test results.
+        devDescription: Defintitely a test.
+        dataArray:
+        - uniqueID: '##nw4pTYn4WGI4'
+          name: Testing the Test Story
+          id: 0
+          devDescription: 
+          isActive: 0
+          isCompleted: 0
+          journalDescription: Complete the test to complete your quest.
+          dataArray:
+          - uniqueID: '##MlOPE2003IFR'
+            name: Complete the test to complete your quest.
+            id: 0
+            isCompleted: 0
+            stagePoints: []
+            notes: []
+            serializedUniqueIDPrefix: 
+          serializedUniqueIDPrefix: 
+        serializedUniqueIDPrefix: story
+      serializedUniqueIDPrefix: storyMyth
+    serializedUniqueIDPrefix: storyMythList
