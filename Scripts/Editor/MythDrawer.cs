@@ -17,10 +17,10 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			//method to return a string showing number of child elements in list item
 			System.Func<SerializedProperty, string> endTextFunc = (SerializedProperty arrayProperty) =>
 			{
-				return GetArrayCountString(arrayProperty, "dataArray", "Thread", "Threads");
+				return EditorTool.GetArrayCountString(arrayProperty, "dataArray", "Thread", "Threads");
 			};
 			//create list
-			reorderableList = GetDefaultEditButtonList(dataArray, "Stories", editAction, endTextFunc, OnAddElement);
+			reorderableList = GetDefaultEditButtonList(dataArray, "Stories");
 		}
 
 		protected override void DrawChildProperties(Rect position, SerializedProperty property)
@@ -29,33 +29,33 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			//draw unique id
 			newPosition = DrawUniqueID(newPosition);
 			//draw name
-			newPosition = DrawTextField(newPosition, name, "Name");
+			newPosition = EditorTool.DrawTextField(newPosition, name, "Name");
 			//draw id
-			newPosition = DrawIntField(newPosition, id, "Myth ID");
+			newPosition = EditorTool.DrawIntField(newPosition, id, "Myth ID");
 			//draw dev description
-			newPosition = DrawTextArea(newPosition, devDescription, "Dev Description");
+			newPosition = EditorTool.DrawTextArea(newPosition, devDescription, "Dev Description");
 			//draw data array
-			newPosition = DrawReorderableList(newPosition, reorderableList, "Stories");
+			newPosition = EditorTool.DrawReorderableList(newPosition, reorderableList, "Stories");
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
 			SetProperties(property);
-			float totalHeight = initialVerticalPaddingHeight;
+			float totalHeight = EditorTool.InitialVerticalPadding;
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//unique id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//name
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//dev description
-			totalHeight += GetAddedHeight(GetHeight(devDescription));
+			totalHeight += EditorTool.GetAddedHeight(EditorTool.GetHeight(devDescription));
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//array
-			totalHeight += GetAddedHeight(reorderableList.GetHeight());
+			totalHeight += EditorTool.GetAddedHeight(reorderableList.GetHeight());
 			return totalHeight;
 		}
 	}

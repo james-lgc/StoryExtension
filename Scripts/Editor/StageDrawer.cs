@@ -9,7 +9,6 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 	[CustomPropertyDrawer(typeof(Stage))]
 	public class StageDrawer : BaseStoryDrawer
 	{
-		private SerializedProperty notes;
 		private SerializedProperty stagePoints;
 		private UnityEditorInternal.ReorderableList notesList;
 		private UnityEditorInternal.ReorderableList stagePointsList;
@@ -17,18 +16,10 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 		{
 			if (GetIsCurrentProperty(sentProperty)) { return; }
 			base.SetProperties(sentProperty);
-			notes = sentProperty.FindPropertyRelative("notes");
-			stagePoints = sentProperty.FindPropertyRelative("stagePoints");
-			//method to return a string showing number of child elements in list item
-			System.Func<SerializedProperty, string> endTextFunc = (SerializedProperty arrayProperty) =>
-			{
-				//return GetArrayCountString(arrayProperty, "dataArray", "Stage", "Stages");
-				return "";
-			};
+			stagePoints = sentProperty.FindPropertyRelative("secondDataArray");
 			//create list
-			//reorderableList = GetDefaultEditButtonList(dataArray, "Stages", editAction, endTextFunc);
-			notesList = GetDefaultEditButtonList(notes, "Notes", editAction);
-			stagePointsList = GetDefaultEditButtonList(stagePoints, "Stage Points", editAction, null, OnAddElement);
+			notesList = GetDefaultEditButtonList(dataArray, "Notes");
+			stagePointsList = GetDefaultEditButtonList(stagePoints, "Stage Points");
 		}
 
 		protected override void DrawChildProperties(Rect position, SerializedProperty property)
@@ -37,35 +28,35 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			//draw unique id
 			newPosition = DrawUniqueID(newPosition);
 			//draw name
-			newPosition = DrawTextArea(newPosition, name, "Name");
+			newPosition = EditorTool.DrawTextArea(newPosition, name, "Name");
 			//draw id
-			newPosition = DrawIntField(newPosition, id, "Stage ID");
+			newPosition = EditorTool.DrawIntField(newPosition, id, "Stage ID");
 			//draw notes
-			newPosition = DrawReorderableList(newPosition, notesList, "Notes");
+			newPosition = EditorTool.DrawReorderableList(newPosition, notesList, "Notes");
 			//draw stage points
-			newPosition = DrawReorderableList(newPosition, stagePointsList, "Stage Points");
+			newPosition = EditorTool.DrawReorderableList(newPosition, stagePointsList, "Stage Points");
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
 			SetProperties(property);
-			float totalHeight = initialVerticalPaddingHeight;
+			float totalHeight = EditorTool.InitialVerticalPadding;
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//unique id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//name
-			totalHeight += GetAddedHeight(GetHeight(name));
+			totalHeight += EditorTool.GetAddedHeight(EditorTool.GetHeight(name));
 			//id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//notes
-			totalHeight += GetAddedHeight(notesList.GetHeight());
+			totalHeight += EditorTool.GetAddedHeight(notesList.GetHeight());
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//stagePoints
-			totalHeight += GetAddedHeight(stagePointsList.GetHeight());
+			totalHeight += EditorTool.GetAddedHeight(stagePointsList.GetHeight());
 			return totalHeight;
 		}
 	}

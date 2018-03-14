@@ -14,13 +14,8 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 		{
 			if (GetIsCurrentProperty(sentProperty)) { return; }
 			base.SetProperties(sentProperty);
-			//method to return a string showing number of child elements in list item
-			System.Func<SerializedProperty, string> endTextFunc = (SerializedProperty arrayProperty) =>
-			{
-				return GetArrayCountString(arrayProperty, "dataArray", "Story", "Stories");
-			};
 			//create list
-			reorderableList = GetDefaultEditButtonList(dataArray, "Myths", editAction, endTextFunc, OnAddElement);
+			reorderableList = GetDefaultEditButtonList(dataArray, "Myths");
 		}
 
 		protected override void DrawChildProperties(Rect position, SerializedProperty property)
@@ -29,25 +24,25 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			//draw unique id
 			newPosition = DrawUniqueID(newPosition);
 			//draw name
-			newPosition = DrawTextField(newPosition, name, "Name");
+			newPosition = EditorTool.DrawTextField(newPosition, name, "Name");
 			//draw data array
-			newPosition = DrawReorderableList(newPosition, reorderableList, "Myths");
+			newPosition = EditorTool.DrawReorderableList(newPosition, reorderableList, "Myths");
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
 			SetProperties(property);
-			float totalHeight = initialVerticalPaddingHeight;
+			float totalHeight = EditorTool.InitialVerticalPadding;
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//unique id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//name
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//array
-			totalHeight += GetAddedHeight(reorderableList.GetHeight());
+			totalHeight += EditorTool.GetAddedHeight(reorderableList.GetHeight());
 			return totalHeight;
 		}
 	}

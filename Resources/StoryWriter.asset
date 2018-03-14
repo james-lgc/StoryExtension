@@ -23,7 +23,10 @@ MonoBehaviour:
   - '##SYHxy9MPU2sd'
   - '#story#4vMvDdOL4pE5'
   - '#story#IBiW0BTVyz6E'
+  - '#storyMyth#7sEZg3YAow0u'
+  - '#storyMyth#kGhAjbNLBGBX'
   - '#storyMyth#O9x0iB1ey5br'
+  - '#storyMyth#T3RuWXlSxXYe'
   - '#storyMythList#dJPLQM1Zgk71'
   - '#storyStage#2511JBCg3P6u'
   - '#storyStage#GNa1Zin4gM5Q'
@@ -34,8 +37,180 @@ MonoBehaviour:
   - '#text#gEuLDnhkEpF0'
   - '#text#NpFqOt4haMMV'
   mythList:
-    uniqueID: 
-    name: 
+    uniqueID: '#storyMythList#dJPLQM1Zgk71'
+    isExpanded: 1
+    name: Myth List
     id: 0
-    dataArray: []
-    serializedUniqueIDPrefix: 
+    dataArray:
+    - uniqueID: '#storyMyth#O9x0iB1ey5br'
+      isExpanded: 1
+      name: A Missing Girl
+      id: 1
+      devDescription: 
+      isCompleted: 0
+      dataArray:
+      - uniqueID: '#story#IBiW0BTVyz6E'
+        isExpanded: 1
+        name: New in Town
+        id: 0
+        journalDescription: I have arrived in Point Palmerson to investigate the cold
+          case of a local missing girl, Olivie Wakefield.
+        devDescription: 'Game Opens: A police officer has escorted the player to a
+          small home in town.'
+        dataArray:
+        - uniqueID: '#storyThread#vgtNETNU8gtO'
+          isExpanded: 1
+          name: Meeting the Parents
+          id: 0
+          devDescription: 
+          isActive: 0
+          isCompleted: 0
+          journalDescription: Gather Information on Olivia's disapearance.
+          dataArray:
+          - uniqueID: '#storyStage#GNa1Zin4gM5Q'
+            isExpanded: 1
+            name: Meet Detective Jones and locate the Wakefield residence.
+            id: 0
+            isCompleted: 0
+            stagePoints: []
+            notes: []
+            serializedUniqueIDPrefix: 
+          - uniqueID: '#storyStage#2511JBCg3P6u'
+            isExpanded: 1
+            name: Talk to Olivia's parents.
+            id: 1
+            isCompleted: 0
+            stagePoints:
+            - uniqueID: '#storyStagePoint#noL3y1V1wQMX'
+              isExpanded: 0
+              name: Talk to Jennifer
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            - uniqueID: '#storyStagePoint#9KRgBpfF1Hbk'
+              isExpanded: 0
+              name: Talk to Marcus
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            notes:
+            - uniqueID: '#text#c4jVfCrGTrHD'
+              isExpanded: 0
+              name: Sam Granger owns a 7-11 in town.  He organized civillian searches
+                after the police efforts ceased.
+              serializedUniqueIDPrefix: text
+            - uniqueID: '#text#NpFqOt4haMMV'
+              isExpanded: 0
+              name: Marcus Wakefield blames Chief Wilson for dropping the investigation
+                into Olivia too quickly.
+              serializedUniqueIDPrefix: text
+            - uniqueID: '#text#gEuLDnhkEpF0'
+              isExpanded: 0
+              name: Sam Granger owns a 7-11 in town.  He organized civillian searches
+                after the police efforts ceased.
+              serializedUniqueIDPrefix: text
+            serializedUniqueIDPrefix: 
+          - uniqueID: '##gVwOHxOx5UWn'
+            isExpanded: 0
+            name: Speak to members of the community who knew Olivia or were involved
+              in the search operation.
+            id: 2
+            isCompleted: 0
+            stagePoints:
+            - uniqueID: '##CP8DeFSEOFOs'
+              isExpanded: 0
+              name: Speak to Mr. Barrington
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            - uniqueID: '##msgwGCKCrNTu'
+              isExpanded: 0
+              name: Speak to Chief Wilson
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            - uniqueID: '##SYHxy9MPU2sd'
+              isExpanded: 0
+              name: Speak to Sam Granger
+              isCompleted: 0
+              isVisibleInJounral: 0
+              maxValue: 1
+              currentValue: 0
+              id: 0
+              serializedUniqueIDPrefix: 
+            notes:
+            - uniqueID: 
+              isExpanded: 0
+              name: She was 13 at the time of her disappearance.
+              serializedUniqueIDPrefix: 
+            - uniqueID: 
+              isExpanded: 0
+              name: Olivia disppeared 5 years ago.
+              serializedUniqueIDPrefix: 
+            serializedUniqueIDPrefix: 
+          serializedUniqueIDPrefix: 
+        serializedUniqueIDPrefix: story
+      - uniqueID: '#story#4vMvDdOL4pE5'
+        isExpanded: 1
+        name: Test Story
+        id: 1
+        journalDescription: Some times testing results in test results.
+        devDescription: Defintitely a test.
+        dataArray:
+        - uniqueID: '##nw4pTYn4WGI4'
+          isExpanded: 0
+          name: Testing the Test Story
+          id: 0
+          devDescription: 
+          isActive: 0
+          isCompleted: 0
+          journalDescription: Complete the test to complete your quest.
+          dataArray:
+          - uniqueID: '##MlOPE2003IFR'
+            isExpanded: 0
+            name: Complete the test to complete your quest.
+            id: 0
+            isCompleted: 0
+            stagePoints: []
+            notes: []
+            serializedUniqueIDPrefix: 
+          serializedUniqueIDPrefix: 
+        serializedUniqueIDPrefix: story
+      serializedUniqueIDPrefix: storyMyth
+    - uniqueID: '#storyMyth#kGhAjbNLBGBX'
+      isExpanded: 0
+      name: Strange Lights in the Sky
+      id: 2
+      devDescription: 
+      isCompleted: 0
+      dataArray: []
+      serializedUniqueIDPrefix: storyMyth
+    - uniqueID: '#storyMyth#T3RuWXlSxXYe'
+      isExpanded: 0
+      name: Our Friends, the Government
+      id: 3
+      devDescription: 
+      isCompleted: 0
+      dataArray: []
+      serializedUniqueIDPrefix: storyMyth
+    - uniqueID: '#storyMyth#7sEZg3YAow0u'
+      isExpanded: 0
+      name: Making the Town a Better Place
+      id: 4
+      devDescription: 
+      isCompleted: 0
+      dataArray: []
+      serializedUniqueIDPrefix: storyMyth
+    serializedUniqueIDPrefix: storyMythList

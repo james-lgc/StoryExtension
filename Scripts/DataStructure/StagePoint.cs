@@ -7,7 +7,6 @@ using DSA.Extensions.Base;
 [System.Serializable]
 public class StagePoint : DataItem
 {
-	[SerializeField] private string name;
 	public override string Text
 	{
 		get
@@ -29,9 +28,6 @@ public class StagePoint : DataItem
 
 	[SerializeField] private int maxValue = 1;
 	[HideInInspector] [SerializeField] private int currentValue;
-
-	[HideInInspector] [SerializeField] private int id;
-	public override int ID { get { return id; } }
 
 	[SerializeField] private string serializedUniqueIDPrefix = "storyStagePoint";
 	protected override string uniqueIDPrefix { get { serializedUniqueIDPrefix = "storyStagePoint"; return serializedUniqueIDPrefix; } }
@@ -72,5 +68,18 @@ public class StagePoint : DataItem
 	public override void SetUniqueID(IProvider<string, string, string> sentProvider)
 	{
 		uniqueID = sentProvider.GetItem(uniqueID, uniqueIDPrefix);
+	}
+
+	public override string GetEndLabelText()
+	{
+		return null;
+	}
+
+	public override void SetAsNew()
+	{
+		name = "New StagePoint";
+		uniqueID = null;
+		id = 0;
+		maxValue = 1;
 	}
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using DSA.Extensions.Base.Editor;
 using DSA.Extensions.Base;
+using System.Reflection;
 
 namespace DSA.Extensions.Stories.DataStructure.Editor
 {
@@ -15,7 +16,17 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 		protected UnityEditorInternal.ReorderableList reorderableList;
 		//action for edit button in list
 		//action opens property in editor window
-		protected System.Action<SerializedProperty> editAction { get { return DSA.Extensions.Stories.DataStructure.Editor.StoryEditorWindow.Init; } }
+		protected override System.Action<SerializedProperty> editAction
+		{
+			get
+			{
+				System.Action<SerializedProperty> tempAction = (SerializedProperty sentProperty) =>
+				{
+					DSA.Extensions.Stories.DataStructure.Editor.StoryEditorWindow.Init(sentProperty);
+				};
+				return tempAction;
+			}
+		}
 
 		protected override void SetProperties(SerializedProperty sentProperty)
 		{

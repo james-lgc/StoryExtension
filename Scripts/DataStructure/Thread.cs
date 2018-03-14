@@ -10,12 +10,6 @@ namespace DSA.Extensions.Stories.DataStructure
 	[System.Serializable]
 	public class Thread : NestedBaseData<Stage>, IDefault
 	{
-		[SerializeField] private string name;
-		public string Name { get { return name; } }
-
-		[SerializeField] private int id;
-		public override int ID { get { return id; } }
-
 		[TextArea] [SerializeField] private string devDescription;
 
 		[HideInInspector] [SerializeField] private bool isActive;
@@ -37,8 +31,6 @@ namespace DSA.Extensions.Stories.DataStructure
 				return journalDescription;
 			}
 		}
-
-		[SerializeField] private Stage[] dataArray;
 
 		[SerializeField] private string serializedUniqueIDPrefix = "storyThread";
 		protected override string uniqueIDPrefix { get { serializedUniqueIDPrefix = "storyThread"; return serializedUniqueIDPrefix; } }
@@ -117,11 +109,6 @@ namespace DSA.Extensions.Stories.DataStructure
 			return tempStages;
 		}
 
-		protected override void SetArray(Stage[] sentData)
-		{
-			dataArray = sentData;
-		}
-
 		public void SetDefault()
 		{
 			foreach (Stage stage in dataArray)
@@ -142,6 +129,23 @@ namespace DSA.Extensions.Stories.DataStructure
 		{
 			uniqueID = sentProvider.GetItem(uniqueID, uniqueIDPrefix);
 			SetChildUnqueIDs(sentProvider);
+		}
+
+		public override string GetEndLabelText()
+		{
+			string unitText = "Stages";
+			if (dataArray.Length == 1) { unitText = "Stage"; }
+			return "[" + dataArray.Length + " " + unitText + "]";
+		}
+
+		public override void SetAsNew()
+		{
+			name = "New Thread";
+			uniqueID = null;
+			id = 0;
+			devDescription = "";
+			journalDescription = "";
+			dataArray = new Stage[0];
 		}
 	}
 }

@@ -9,12 +9,6 @@ namespace DSA.Extensions.Stories.DataStructure
 	[System.Serializable]
 	public class Story : NestedBaseData<Thread>, IPrintable, IDefault<int>
 	{
-		[SerializeField] private string name;
-		public override string Text { get { return name; } }
-
-		[SerializeField] private int id;
-		public override int ID { get { return id; } }
-
 		[TextArea] [SerializeField] private string journalDescription;
 		public string PrintableText { get { return journalDescription; } }
 
@@ -34,8 +28,6 @@ namespace DSA.Extensions.Stories.DataStructure
 				return tempIndex;
 			}
 		}
-
-		[SerializeField] private Thread[] dataArray;
 
 		public Story(Thread[] sentArray) : base(sentArray) { }
 		public Story(Thread sentData) : base(sentData) { }
@@ -74,11 +66,6 @@ namespace DSA.Extensions.Stories.DataStructure
 				tempThreads[places.Count - 1 - i] = dataArray[places[i]];
 			}
 			return tempThreads;
-		}
-
-		protected override void SetArray(Thread[] sentData)
-		{
-			dataArray = sentData;
 		}
 
 		public int GetActiveThreadPlace()
@@ -154,6 +141,23 @@ namespace DSA.Extensions.Stories.DataStructure
 		{
 			uniqueID = sentProvider.GetItem(uniqueID, uniqueIDPrefix);
 			SetChildUnqueIDs(sentProvider);
+		}
+
+		public override string GetEndLabelText()
+		{
+			string unitText = "Threads";
+			if (GetArray().Length == 1) { unitText = "Thread"; }
+			return "[" + GetArray().Length + " " + unitText + "]";
+		}
+
+		public override void SetAsNew()
+		{
+			name = "New Story";
+			uniqueID = null;
+			id = 0;
+			devDescription = "";
+			journalDescription = "";
+			dataArray = new Thread[0];
 		}
 	}
 }

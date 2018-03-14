@@ -8,16 +8,6 @@ namespace DSA.Extensions.Stories.DataStructure
 	[System.Serializable]
 	public class MythList : NestedBaseData<Myth>, IDefault
 	{
-		[SerializeField] private string name = "Myth List";
-
-		[SerializeField] private int id;
-		public override int ID { get { return id; } }
-
-		public override string Text { get { return "Myth List"; } }
-
-		[SerializeField] private Myth[] dataArray;
-		public Myth[] Myths { get { return dataArray; } }
-
 		[SerializeField] private string serializedUniqueIDPrefix = "storyMythList";
 		protected override string uniqueIDPrefix { get { serializedUniqueIDPrefix = "storyMythList"; return serializedUniqueIDPrefix; } }
 
@@ -32,16 +22,6 @@ namespace DSA.Extensions.Stories.DataStructure
 			}
 		}
 
-		public override DataItem[] GetArray()
-		{
-			return dataArray;
-		}
-
-		protected override void SetArray(Myth[] sentData)
-		{
-			dataArray = sentData;
-		}
-
 		public override List<string> GetUniqueIDs()
 		{
 			List<string> tempList = GetChildUniqueIDs(dataArray);
@@ -53,6 +33,21 @@ namespace DSA.Extensions.Stories.DataStructure
 		{
 			uniqueID = sentProvider.GetItem(uniqueID, uniqueIDPrefix);
 			SetChildUnqueIDs(sentProvider);
+		}
+
+		public override string GetEndLabelText()
+		{
+			string unitText = "Myths";
+			if (GetArray().Length == 1) { unitText = "Myth"; }
+			return "[" + GetArray().Length + " " + unitText + "]";
+		}
+
+		public override void SetAsNew()
+		{
+			name = "New MythList";
+			uniqueID = null;
+			id = 0;
+			dataArray = new Myth[0];
 		}
 	}
 }

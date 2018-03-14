@@ -10,14 +10,6 @@ namespace DSA.Extensions.Stories.DataStructure
 	[System.Serializable]
 	public class Stage : NestedBaseData<PrintableString>, IDefault
 	{
-		[TextArea] [SerializeField] private string name;
-
-		[HideInInspector] [SerializeField] private int id;
-		public override int ID { get { return id; } }
-
-		[HideInInspector] [SerializeField] private bool isCompleted = false;
-		public bool IsCompleted { get { return isCompleted; } }
-
 		public override string Text
 		{
 			get
@@ -31,11 +23,10 @@ namespace DSA.Extensions.Stories.DataStructure
 			}
 		}
 
-		[SerializeField] private StagePoint[] stagePoints;
-		public StagePoint[] StagePoints { get { return stagePoints; } }
+		[HideInInspector] [SerializeField] private bool isCompleted = false;
+		public bool IsCompleted { get { return isCompleted; } }
 
-		[SerializeField] private PrintableString[] notes;
-		public PrintableString[] Notes { get { return notes; } }
+		[SerializeField] private StagePoint[] secondDataArray;
 
 		[SerializeField] private string serializedUniqueIDPrefix = "storyStage";
 		protected override string uniqueIDPrefix { get { serializedUniqueIDPrefix = "storyStage"; return serializedUniqueIDPrefix; } }
@@ -50,17 +41,17 @@ namespace DSA.Extensions.Stories.DataStructure
 
 		public void IncreaseStagePoint(int i)
 		{
-			if (i >= stagePoints.Length) return;
+			if (i >= secondDataArray.Length) return;
 			if (i < 0) return;
-			stagePoints[i].Increase();
+			secondDataArray[i].Increase();
 			CheckCompletion();
 		}
 
 		private void CheckCompletion()
 		{
-			for (int i = 0; i < stagePoints.Length; i++)
+			for (int i = 0; i < secondDataArray.Length; i++)
 			{
-				if (stagePoints[i].IsCompleted == false)
+				if (secondDataArray[i].IsCompleted == false)
 				{
 					return;
 				}
@@ -72,18 +63,18 @@ namespace DSA.Extensions.Stories.DataStructure
 		{
 			if (isCompleted == false)
 			{
-				if (stagePoints == null) return null;
-				if (stagePoints.Length == 0) return null;
-				return stagePoints;
+				if (secondDataArray == null) return null;
+				if (secondDataArray.Length == 0) return null;
+				return secondDataArray;
 			}
-			if (notes == null) return null;
-			if (notes.Length == 0) return null;
-			return notes;
+			if (dataArray == null) return null;
+			if (dataArray.Length == 0) return null;
+			return dataArray;
 		}
 
 		protected override void SetArray(PrintableString[] sentData)
 		{
-			notes = sentData;
+			dataArray = sentData;
 		}
 
 		private string GetStrikeThroughText(string sentText)
@@ -108,16 +99,35 @@ namespace DSA.Extensions.Stories.DataStructure
 		{
 			List<string> tempList = GetNewStringList();
 			tempList.Add(uniqueID);
-			tempList = tempList.Concat(GetChildUniqueIDs(notes)).ToList();
-			tempList = tempList.Concat(GetChildUniqueIDs(stagePoints)).ToList();
+			tempList = tempList.Concat(GetChildUniqueIDs(dataArray)).ToList();
+			tempList = tempList.Concat(GetChildUniqueIDs(secondDataArray)).ToList();
 			return tempList;
 		}
 
 		public override void SetUniqueID(IProvider<string, string, string> sentProvider)
 		{
 			uniqueID = sentProvider.GetItem(uniqueID, uniqueIDPrefix);
-			SetArrayUniqueIDs(notes, sentProvider);
-			SetArrayUniqueIDs(stagePoints, sentProvider);
+			SetArrayUniqueIDs(dataArray, sentProvider);
+			SetArrayUniqueIDs(secondDataArray, sentProvider);
+		}
+
+		public override string GetEndLabelText()
+		{
+			string unitText1 = "StagePoints";
+			if (secondDataArray.Length == 1) { unitText1 = "StagePoint"; }
+			string unitText2 = "Notes";
+			if (secondDataArray.Length == 1) { unitText1 = "Note"; }
+			return "[" + secondDataArray.Length + " " + unitText1 + ", " + dataArray.Length + " " + unitText2 + "]";
+		}
+
+		public override void SetAsNew()
+		{
+			name = "New Stage";
+			uniqueID = null;
+			id = 0;
+			//dataArray = new Story[0];
+			secondDataArray = new StagePoint[0];
+			dataArray = new PrintableString[0];
 		}
 	}
 }

@@ -66,7 +66,7 @@ namespace DSA.Extensions.Stories
 		public void SetStories()
 		{
 			hardMythList = writer.ReadTFromJson();
-			foreach (Myth myth in hardMythList.Myths)
+			foreach (Myth myth in hardMythList.GetArray())
 			{
 				myth.SetDefault();
 			}

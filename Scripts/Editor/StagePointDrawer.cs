@@ -23,9 +23,9 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			//draw unique id
 			newPosition = DrawUniqueID(newPosition);
 			//draw name
-			newPosition = DrawTextField(newPosition, name, "Name");
+			newPosition = EditorTool.DrawTextField(newPosition, name, "Name");
 			//draw id
-			newPosition = DrawIntField(newPosition, maxValue, "Max Value");
+			newPosition = EditorTool.DrawIntField(newPosition, maxValue, "Max Value");
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
@@ -33,11 +33,11 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			SetProperties(property);
 			float totalHeight = 0F;
 			//unique id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//name
-			totalHeight += GetAddedHeight(GetHeight(name));
+			totalHeight += EditorTool.GetAddedHeight(EditorTool.GetHeight(name));
 			//id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			return totalHeight;
 		}
 	}

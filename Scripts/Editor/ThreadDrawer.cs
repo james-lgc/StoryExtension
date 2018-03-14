@@ -28,7 +28,7 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 				element.FindPropertyRelative("stagePoints").arraySize = 0;
 			};
 			//create list
-			reorderableList = GetDefaultEditButtonList(dataArray, "Stages", editAction, endTextFunc, addAction);
+			reorderableList = GetDefaultEditButtonList(dataArray, "Stages");
 		}
 
 		protected override void DrawChildProperties(Rect position, SerializedProperty property)
@@ -37,37 +37,37 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 			//draw unique id
 			newPosition = DrawUniqueID(newPosition);
 			//draw name
-			newPosition = DrawTextField(newPosition, name, "Name");
+			newPosition = EditorTool.DrawTextField(newPosition, name, "Name");
 			//draw id
-			newPosition = DrawIntField(newPosition, id, "Thread ID");
+			newPosition = EditorTool.DrawIntField(newPosition, id, "Thread ID");
 			//draw dev description
-			newPosition = DrawTextArea(newPosition, devDescription, "Dev Description");
+			newPosition = EditorTool.DrawTextArea(newPosition, devDescription, "Dev Description");
 			//draw journal description
-			newPosition = DrawTextArea(newPosition, journalDescription, "Journal Description");
+			newPosition = EditorTool.DrawTextArea(newPosition, journalDescription, "Journal Description");
 			//draw data array
-			newPosition = DrawReorderableList(newPosition, reorderableList, "Stages");
+			newPosition = EditorTool.DrawReorderableList(newPosition, reorderableList, "Stages");
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
 			SetProperties(property);
-			float totalHeight = initialVerticalPaddingHeight;
+			float totalHeight = EditorTool.InitialVerticalPadding;
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//unique id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//name
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//id
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//dev description
-			totalHeight += GetAddedHeight(GetHeight(devDescription));
+			totalHeight += EditorTool.GetAddedHeight(EditorTool.GetHeight(devDescription));
 			//journal description
-			totalHeight += GetAddedHeight(GetHeight(journalDescription));
+			totalHeight += EditorTool.GetAddedHeight(EditorTool.GetHeight(journalDescription));
 			//label
-			totalHeight += GetAddedHeight(lineHeight);
+			totalHeight += EditorTool.AddedLineHeight;
 			//array
-			totalHeight += GetAddedHeight(reorderableList.GetHeight());
+			totalHeight += EditorTool.GetAddedHeight(reorderableList.GetHeight());
 			return totalHeight;
 		}
 	}

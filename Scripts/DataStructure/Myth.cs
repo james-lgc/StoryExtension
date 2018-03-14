@@ -9,17 +9,9 @@ namespace DSA.Extensions.Stories.DataStructure
 	[System.Serializable]
 	public class Myth : NestedBaseData<Story>, IConditional, IDefault
 	{
-		[SerializeField] private string name;
-		public override string Text { get { return name; } }
-
-		[SerializeField] private int id;
-		public override int ID { get { return id; } }
-
 		[TextArea] [SerializeField] private string devDescription;
 
 		[HideInInspector] [SerializeField] private bool isCompleted;
-
-		[SerializeField] private Story[] dataArray;
 
 		[SerializeField] private string serializedUniqueIDPrefix = "storyMyth";
 		protected override string uniqueIDPrefix { get { serializedUniqueIDPrefix = "storyMyth"; return serializedUniqueIDPrefix; } }
@@ -38,11 +30,6 @@ namespace DSA.Extensions.Stories.DataStructure
 		public override DataItem[] GetArray()
 		{
 			return dataArray;
-		}
-
-		protected override void SetArray(Story[] sentData)
-		{
-			dataArray = sentData;
 		}
 
 		public bool GetIsConditionMet()
@@ -66,6 +53,22 @@ namespace DSA.Extensions.Stories.DataStructure
 		{
 			uniqueID = sentProvider.GetItem(uniqueID, uniqueIDPrefix);
 			SetChildUnqueIDs(sentProvider);
+		}
+
+		public override string GetEndLabelText()
+		{
+			string unitText = "Stories";
+			if (dataArray.Length == 1) { unitText = "Story"; }
+			return "[" + dataArray.Length + " " + unitText + "]";
+		}
+
+		public override void SetAsNew()
+		{
+			name = "New Myth";
+			uniqueID = null;
+			id = 0;
+			devDescription = "";
+			dataArray = new Story[0];
 		}
 	}
 }
