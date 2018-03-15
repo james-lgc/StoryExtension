@@ -13,7 +13,7 @@ namespace DSA.Extensions.Stories
 	//returns story progress from the manager
 	public class StoryProgressDataHolder : ExtendedScriptableObject, IDataHoldable<StoryProgressTracker?>, IProvider<int[][], bool>
 	{
-		public override ExtensionEnum.Extension Extension { get { return ExtensionEnum.Extension.Story; } }
+		public override ExtensionEnum Extension { get { return ExtensionEnum.Story; } }
 
 		public Func<StoryProgressTracker?> GetDataFunc { protected get; set; }
 

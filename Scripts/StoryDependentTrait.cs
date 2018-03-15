@@ -9,7 +9,7 @@ namespace DSA.Extensions.Stories
 	//Concrete trait to trigger an action if story progress has reached a defined stage
 	public class StoryDependentTrait : TraitBase, IConditional, IDataRetrievable<StoryProgressTracker?>
 	{
-		public override ExtensionEnum.Extension Extension { get { return ExtensionEnum.Extension.Story; } }
+		public override ExtensionEnum Extension { get { return ExtensionEnum.Story; } }
 
 		//Data holder to get progress from manager
 		public IDataHoldable<StoryProgressTracker?> DataHolder { protected get; set; }

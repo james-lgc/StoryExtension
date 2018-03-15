@@ -10,7 +10,7 @@ namespace DSA.Extensions.Stories
 	[System.Serializable]
 	public class StoryProgressTrait : TraitBase, ISendable<StoryProgressTracker?>
 	{
-		public override ExtensionEnum.Extension Extension { get { return ExtensionEnum.Extension.Story; } }
+		public override ExtensionEnum Extension { get { return ExtensionEnum.Story; } }
 
 		protected StoryProgressDataHolder dataHolder;
 

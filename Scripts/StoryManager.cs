@@ -12,7 +12,7 @@ namespace DSA.Extensions.Stories
 {
 	public class StoryManager : ClickableCanvasedManagerBase<JournalCanvas>
 	{
-		public override ExtensionEnum.Extension Extension { get { return ExtensionEnum.Extension.Story; } }
+		public override ExtensionEnum Extension { get { return ExtensionEnum.Story; } }
 
 		//StoryNameButtons 0
 		//StoryStatusButtons 1
@@ -53,7 +53,6 @@ namespace DSA.Extensions.Stories
 
 		public override void PassDelegatesToTraits(TraitedMonoBehaviour sentObj)
 		{
-			SetTraitActions<StoryInstructionTrait, StoryInstruction>(sentObj, ProcessStoryInstruction);
 			SetDataHolder<StoryDependentTrait, StoryProgressTracker?>(sentObj, storyProgressDataHolder);
 		}
 
@@ -113,23 +112,31 @@ namespace DSA.Extensions.Stories
 			}
 		}
 
-		public void ProcessStoryInstruction(StoryInstruction sentInstruction)
+		public override bool ProcessInstruction(InstructionData sentInstruction)
 		{
-			switch (sentInstruction.Instruction)
+			//return false base process conditions are not met
+			if (!base.ProcessInstruction(sentInstruction)) { return false; }
+			StoryIndex tempIndex = new StoryIndex(sentInstruction.identifier);
+			switch (sentInstruction.identifier.Length)
 			{
-				case StoryInstruction.InstructionEnum.ActivateStory:
-					ActivateStory(sentInstruction.SIndex);
+				//Activate story
+				case 2:
+					ActivateStory(tempIndex);
 					break;
-				case StoryInstruction.InstructionEnum.ActivateThread:
-					ActivateThread(sentInstruction.SIndex);
+				//Activate thread
+				case 3:
+					ActivateThread(tempIndex);
 					break;
-				case StoryInstruction.InstructionEnum.StageUp:
-					IncreaseStoryStage(sentInstruction.SIndex);
+				//Increase stage
+				case 4:
+					IncreaseStoryStage(tempIndex);
 					break;
-				case StoryInstruction.InstructionEnum.StagePointUp:
-					IncreaseStagePoint(sentInstruction.SIndex, sentInstruction.StagePointID);
+				//Increase stage point
+				case 5:
+					IncreaseStagePoint(tempIndex, sentInstruction.identifier[4]);
 					break;
 			}
+			return true;
 		}
 
 		public void ProgressStory()

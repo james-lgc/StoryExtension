@@ -11,7 +11,7 @@ namespace DSA.Extensions.Stories
 	[System.Serializable]
 	public class JournalCanvas : ClickableCanvas
 	{
-		public override ExtensionEnum.Extension Extension { get { return ExtensionEnum.Extension.Story; } }
+		public override ExtensionEnum Extension { get { return ExtensionEnum.Story; } }
 		//StoryNameButtons 0
 		//StoryStatusButtons 1
 		//StoryStageButtons 2
