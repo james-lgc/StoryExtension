@@ -17,6 +17,7 @@ namespace DSA.Extensions.Stories
 
 		public override void Process()
 		{
+			if (mythList == null || mythList.GetArray() == null) { mythList = new MythList(new Myth[0]); }
 			mythList.SetDefault();
 			mythList.SetUniqueID(this);
 			uniqueIDs = mythList.GetUniqueIDs();

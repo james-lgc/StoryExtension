@@ -16,6 +16,7 @@ namespace DSA.Extensions.Stories.DataStructure
 
 		public void SetDefault()
 		{
+			if (dataArray == null) { return; }
 			for (int i = 0; i < dataArray.Length; i++)
 			{
 				dataArray[i].SetDefault();
