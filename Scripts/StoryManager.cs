@@ -19,7 +19,7 @@ namespace DSA.Extensions.Stories
 		//StoryStageButtons 2
 		[SerializeField] StoryWriter writer;
 
-		[SerializeField] private MythList hardMythList;
+		[HideInInspector][SerializeField] private MythList hardMythList;
 		public MythList HardMythList { get { return hardMythList; } }
 
 		[SerializeField] private StoryProgressDataHolder storyProgressDataHolder;
