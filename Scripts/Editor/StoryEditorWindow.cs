@@ -14,7 +14,7 @@ namespace DSA.Extensions.Stories.DataStructure.Editor
 		protected override int maxNestedButtons { get { return 5; } }
 
 		//Menu item initiailisation to load the top level conversation list
-		[MenuItem("Window/Stories")]
+		[MenuItem("Window/Stories", false, 1)]
 		public static void Init()
 		{
 			StoryEditorWindow window = (StoryEditorWindow)EditorWindow.GetWindow(typeof(StoryEditorWindow));
